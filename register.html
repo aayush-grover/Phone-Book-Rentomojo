@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>REGISTER</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+       
+    <body>
+        <div class="container">
+        <h1>REGISTER</h1>
+        <input type="text" placeholder="Enter Name" name="name" id="name" class="form-control"><br>
+        <input type="number" placeholder="Enter phone number" name="pno" id="pno" class="form-control"><br>
+        <input type="email" placeholder="Enter Email" name="email" id="email" class="form-control"><br>
+        <input type="password" placeholder="Enter Password" name="pass" id="pass" class="form-control"><br>
+       <input type="button" name="register" value="register" id="bt" class="btn btn-primary btn-lg btn-block">
+       </div>
+        <script>
+         
+
+            var bt=document.getElementById("bt");
+            bt.addEventListener("click",function(){
+                var name=document.getElementById("name").value;
+            var pno=document.getElementById("pno").value;
+            var email=document.getElementById("email").value;
+            var pass=document.getElementById("pass").value;
+
+                var xml=new XMLHttpRequest();
+            xml.open("POST","http://localhost:8000/register");
+            xml.setRequestHeader("Content-Type", "application/json");
+            xml.send(JSON.stringify({"name":name,"pno":pno,"email":email,"pass":pass}));
+            alert("Registered Successfully");
+            window.location.assign("/loginpage");
+           
+            });
+            
+           
+
+            </script>
+        </body>
+    </html>

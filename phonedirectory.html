@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>
+            PHONE DIRECTORY
+           
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>ADD CONTACTS</h1>
+        <input type="text" id="cname" placeholder="Enter contact name:" class="form-control"><br>
+        <input type="number" id="cno" placeholder="Enter contact number:" class="form-control"><br>
+        <input type="button" id="bt" value="ADD" class="btn btn-primary btn-lg btn-block"><br>
+        <a href="/showcontacts"><button class="btn btn-primary btn-lg btn-block">SHOW CONTACTS</button></a>
+        </div>
+        <script>
+           var bt=document.getElementById("bt");
+           bt.addEventListener("click",function(){
+               var cname=document.getElementById("cname").value;
+               var cno=document.getElementById("cno").value;
+               var xml=new XMLHttpRequest();
+               xml.open("POST","http://localhost:8000/addcontact");
+               xml.setRequestHeader("Content-Type", "application/json");
+               xml.send(JSON.stringify({"cname":cname,"cno":cno}));
+               alert("CONTACT ADDED");
+               window.location.assign("/contact");
+           })
+        </script>
+        </body>
+</html>
+
+

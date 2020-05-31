@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>LOGIN</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    
+      
+    <body>
+        <div class="container">
+        <h1>LOGIN</h1>
+        <input type="email" placeholder="Enter Email" name="email" id="email" class="form-control"><br>
+        <input type="password" placeholder="Enter Password" name="pass" id="pass" class="form-control"><br>
+        <input type="button" name="login" value="login" id="bt" class="btn btn-primary btn-lg btn-block"><br>
+        <a href="/registerpage"><button class="btn btn-primary btn-lg btn-block">REGISTER</button></a>
+       </div>
+        <script>
+            var bt=document.getElementById("bt");
+            bt.addEventListener("click",function(){
+                    var email=document.getElementById("email").value;
+                    var pass=document.getElementById("pass").value;
+                    var xml=new XMLHttpRequest();
+                    xml.open("POST","http://localhost:8000/login");
+                    xml.setRequestHeader("Content-Type", "application/json");
+                    xml.send(JSON.stringify({"email":email,"pass":pass}));
+                    setTimeout(function(){
+                        window.location.assign("/contact");
+                    },1);
+                   
+            });
+        </script>
+        </body>
+
+    </html>

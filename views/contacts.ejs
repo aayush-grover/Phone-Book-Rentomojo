@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        </head>
+    <body>
+        <div class="container">
+        <div style="float:left">
+            <h1>CONTACT LIST</h1>
+            </div>
+            <br>
+            <br>
+            <div style="float:right">
+               <h4> <span class="label label-info">User id-<%= email %></span></h4>
+               
+            </div>
+            <br>
+            <br>
+            <div style="float:right">
+            <a href="/loginpage"><button class="btn btn-primary btn-lg">LOGOUT</button></a>
+            
+            </div>
+            <br>
+            <br>
+            <br>
+          
+            <% con.forEach(function(xx){ %>
+                    <div class="well"><%= xx.name %><br><%= xx.phonenumber %></div>
+          <%  }); %>
+           
+           
+           </div>
+        </body>
+    </html>
